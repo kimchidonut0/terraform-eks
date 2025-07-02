@@ -1,7 +1,7 @@
 variable "region" {
   description = "AWS region to deploy to"
   type        = string
-  default     = "us-west-2"
+  default     = "ca-central-1"
 }
 
 variable "cluster_name" {
