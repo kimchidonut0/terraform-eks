@@ -2,6 +2,14 @@
 
 This solution deploys the [paulbouwer/hello-kubernetes](https://hub.docker.com/r/paulbouwer/hello-kubernetes) container into an AWS EKS cluster, while creating necessary VPC and security settings
 
+
+## Justification:
+**Networking and Security:**  
+This module uses the official Terraform AWS VPC and EKS modules to provision a secure environment for kubernetes clusters. Worker nodes are placed in private subnets, making them inaccessible directly from the internet, while public subnets are used only for load balancer endpoints. A NAT Gateway is deployed to allow nodes to access the internet for updates and image pulls without exposing them publicly. Security groups and IAM roles are automatically managed by the modules to follow AWS and Kubernetes best practices, minimizing manual configuration and reducing the risk of misconfiguration.
+
+**Kubernetes Deployment:**  
+The Kubernetes resources (namespace, deployment, and service) are provisioned using the Terraform Kubernetes provider. The deployment runs a single replica of the container image (`paulbouwer/hello-kubernetes:1.7` in this example) and exposes it via a Kubernetes LoadBalancer service. An external Elastic Load Balancer (ELB) routes traffic to the private worker nodes, allowing for secure access to the application while keeping the application pods themselves in private subnets.
+
 ---
 
 ## AWS Authentication
