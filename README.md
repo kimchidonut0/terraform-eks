@@ -8,7 +8,7 @@ This solution deploys the [paulbouwer/hello-kubernetes](https://hub.docker.com/r
 
 Before running Terraform, you need to have proper authentication and access to AWS:
 
-1. **Configure aws cli credentials **
+1. **Configure aws cli credentials**
    ```sh
    aws configure
    ```
@@ -16,7 +16,7 @@ Before running Terraform, you need to have proper authentication and access to A
    ```sh
    export AWS_ACCESS_KEY_ID=your-access-key-id
    export AWS_SECRET_ACCESS_KEY=your-secret-access-key
-   export AWS_DEFAULT_REGION=us-west-2
+   export AWS_DEFAULT_REGION=ca-central-1
    ```
 
 2. **Test your authentication:**
